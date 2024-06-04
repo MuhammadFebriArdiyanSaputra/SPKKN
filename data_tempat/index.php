@@ -29,16 +29,18 @@
             <th>Aksi</th>
         </tr>
         <?php
+            $nomor = 1;
             $result = $connect->query("SELECT * FROM tempat;");
             while($row = $result->fetch_assoc()) {
                 echo "<tr>
-                    <td>".$row["id_tempat"]."</td>
+                    <td>".$nomor."</td>
                     <td>".$row["nama_tempat"]."</td>
                     <td>
                         <a href='edit.php?id_tempat=".$row['id_tempat']."'>Edit</a>
                         <a href='hapus.php?id_tempat=".$row['id_tempat']."' onclick=\"return confirm('Apakah benar mau menghapus data ini?');\">Hapus</a>
                     </td>
                 </tr>";
+                $nomor++;
             }
         ?>
     </table>
