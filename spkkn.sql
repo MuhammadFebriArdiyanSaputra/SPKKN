@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2024 at 06:27 PM
+-- Generation Time: Jun 04, 2024 at 04:52 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,13 @@ CREATE TABLE `dpl` (
   `nama_dpl` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `dpl`
+--
+
+INSERT INTO `dpl` (`nip`, `nama_dpl`) VALUES
+(1990081720200410, 'Budi');
+
 -- --------------------------------------------------------
 
 --
@@ -45,6 +52,42 @@ CREATE TABLE `mahasiswa` (
   `angkatan` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`npm`, `nama_mahasiswa`, `prodi`, `angkatan`) VALUES
+(2217051019, 'M. Febri Ardiyan Saputra', 'S1 Ilmu Komputer', 2022),
+(2217051024, 'Nicholas Vitto Adrianto', 'S1 Ilmu Komputer', 2022),
+(2217051025, 'Afina Zahra Choirunnisa', 'S1 Ilmu Komputer', 2022),
+(2217051110, 'M. Fahreza Yusuf', 'S1 Ilmu Komputer', 2022);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `penempatan_dpl`
+-- (See below for the actual view)
+--
+CREATE TABLE `penempatan_dpl` (
+`id_tempat_dpl` int(11)
+,`nip` bigint(18)
+,`nama_dpl` varchar(32)
+,`id_tempat` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `penempatan_mhs`
+-- (See below for the actual view)
+--
+CREATE TABLE `penempatan_mhs` (
+`id_tempat_mhs` int(11)
+,`npm` bigint(11)
+,`nama_mahasiswa` varchar(32)
+,`nama_tempat` varchar(100)
+);
+
 -- --------------------------------------------------------
 
 --
@@ -53,8 +96,17 @@ CREATE TABLE `mahasiswa` (
 
 CREATE TABLE `tempat` (
   `id_tempat` int(11) NOT NULL,
-  `nama_tempat` varchar(50) NOT NULL
+  `nama_tempat` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tempat`
+--
+
+INSERT INTO `tempat` (`id_tempat`, `nama_tempat`) VALUES
+(1, 'Desa Menturus, Kecamatan Kudu, Kabupaten Jombang, Jawa Timur'),
+(2, 'Desa Sidomulyo, Kec. Sidomulyo, Kab. Lampung Selatan, Lampung Selatan'),
+(3, 'Desa Srimulyo, Kec. Anak Ratu Aji, Kab. Lampung Tengah, Lampung');
 
 -- --------------------------------------------------------
 
@@ -68,6 +120,13 @@ CREATE TABLE `tempat_dpl` (
   `id_tempat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tempat_dpl`
+--
+
+INSERT INTO `tempat_dpl` (`id_tempat_dpl`, `nip`, `id_tempat`) VALUES
+(1, 1990081720200410, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -79,6 +138,33 @@ CREATE TABLE `tempat_mhs` (
   `npm` bigint(18) NOT NULL,
   `id_tempat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tempat_mhs`
+--
+
+INSERT INTO `tempat_mhs` (`id_tempat_mhs`, `npm`, `id_tempat`) VALUES
+(1, 2217051024, 2),
+(2, 2217051019, 1),
+(3, 2217051025, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `penempatan_dpl`
+--
+DROP TABLE IF EXISTS `penempatan_dpl`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `penempatan_dpl`  AS SELECT `tempat_dpl`.`id_tempat_dpl` AS `id_tempat_dpl`, `dpl`.`nip` AS `nip`, `dpl`.`nama_dpl` AS `nama_dpl`, `tempat`.`id_tempat` AS `id_tempat` FROM ((`tempat_dpl` join `dpl`) join `tempat`) WHERE `tempat_dpl`.`nip` = `dpl`.`nip` AND `tempat_dpl`.`id_tempat` = `tempat`.`id_tempat` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `penempatan_mhs`
+--
+DROP TABLE IF EXISTS `penempatan_mhs`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `penempatan_mhs`  AS SELECT `tempat_mhs`.`id_tempat_mhs` AS `id_tempat_mhs`, `mahasiswa`.`npm` AS `npm`, `mahasiswa`.`nama_mahasiswa` AS `nama_mahasiswa`, `tempat`.`nama_tempat` AS `nama_tempat` FROM ((`mahasiswa` join `tempat`) join `tempat_mhs`) WHERE `tempat_mhs`.`npm` = `mahasiswa`.`npm` AND `tempat_mhs`.`id_tempat` = `tempat`.`id_tempat` ;
 
 --
 -- Indexes for dumped tables
@@ -126,31 +212,31 @@ ALTER TABLE `tempat_mhs`
 -- AUTO_INCREMENT for table `dpl`
 --
 ALTER TABLE `dpl`
-  MODIFY `nip` bigint(18) NOT NULL AUTO_INCREMENT;
+  MODIFY `nip` bigint(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1990081720200411;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `npm` bigint(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `npm` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2217051111;
 
 --
 -- AUTO_INCREMENT for table `tempat`
 --
 ALTER TABLE `tempat`
-  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tempat_dpl`
 --
 ALTER TABLE `tempat_dpl`
-  MODIFY `id_tempat_dpl` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tempat_dpl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tempat_mhs`
 --
 ALTER TABLE `tempat_mhs`
-  MODIFY `id_tempat_mhs` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tempat_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
