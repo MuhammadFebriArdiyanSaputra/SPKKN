@@ -34,7 +34,11 @@
             $prodi = $_POST['prodi'];
             $angkatan = $_POST['angkatan'];
 
+<<<<<<< HEAD
             $statement = $connect->prepare("INSERT INTO mahasiswa VALUES (?, ?, ?, ?)");
+=======
+            $statement = $conn->prepare("INSERT INTO mahasiswa VALUES (?, ?, ?, ?)");
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
             $statement->bind_param("isss", $npm, $nama_mahasiswa, $prodi, $angkatan);
             if($statement->execute()) {
                 echo "<br><br>Mahasiswa baru berhasil ditambahkan!";

@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Jun 04, 2024 at 04:52 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
+=======
+-- Waktu pembuatan: 06 Jun 2024 pada 17.04
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +30,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `dpl`
 --
 
@@ -38,11 +45,34 @@ CREATE TABLE `dpl` (
 
 INSERT INTO `dpl` (`nip`, `nama_dpl`) VALUES
 (1990081720200410, 'Budi');
+=======
+-- Struktur dari tabel `dpl`
+--
+
+CREATE TABLE `dpl` (
+  `id` bigint(18) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `nip` bigint(18) NOT NULL,
+  `kontak` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `dpl`
+--
+
+INSERT INTO `dpl` (`id`, `nama`, `nip`, `kontak`) VALUES
+(1, 'Dosen, S.kom.', 12232211, '0895989898'),
+(2, 'Dosen, S.kom.', 1223221, '0895989892');
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `mahasiswa`
+=======
+-- Struktur dari tabel `mahasiswa`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 
 CREATE TABLE `mahasiswa` (
@@ -53,7 +83,11 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+<<<<<<< HEAD
 -- Dumping data for table `mahasiswa`
+=======
+-- Dumping data untuk tabel `mahasiswa`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 
 INSERT INTO `mahasiswa` (`npm`, `nama_mahasiswa`, `prodi`, `angkatan`) VALUES
@@ -65,6 +99,7 @@ INSERT INTO `mahasiswa` (`npm`, `nama_mahasiswa`, `prodi`, `angkatan`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Stand-in structure for view `penempatan_dpl`
 -- (See below for the actual view)
 --
@@ -73,13 +108,24 @@ CREATE TABLE `penempatan_dpl` (
 ,`nip` bigint(18)
 ,`nama_dpl` varchar(32)
 ,`id_tempat` int(11)
+=======
+-- Stand-in struktur untuk tampilan `penempatan_dpl`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `penempatan_dpl` (
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 );
 
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Stand-in structure for view `penempatan_mhs`
 -- (See below for the actual view)
+=======
+-- Stand-in struktur untuk tampilan `penempatan_mhs`
+-- (Lihat di bawah untuk tampilan aktual)
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 CREATE TABLE `penempatan_mhs` (
 `id_tempat_mhs` int(11)
@@ -91,7 +137,11 @@ CREATE TABLE `penempatan_mhs` (
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `tempat`
+=======
+-- Struktur dari tabel `tempat`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 
 CREATE TABLE `tempat` (
@@ -100,7 +150,11 @@ CREATE TABLE `tempat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+<<<<<<< HEAD
 -- Dumping data for table `tempat`
+=======
+-- Dumping data untuk tabel `tempat`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 
 INSERT INTO `tempat` (`id_tempat`, `nama_tempat`) VALUES
@@ -111,7 +165,11 @@ INSERT INTO `tempat` (`id_tempat`, `nama_tempat`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `tempat_dpl`
+=======
+-- Struktur dari tabel `tempat_dpl`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 
 CREATE TABLE `tempat_dpl` (
@@ -120,6 +178,7 @@ CREATE TABLE `tempat_dpl` (
   `id_tempat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+<<<<<<< HEAD
 --
 -- Dumping data for table `tempat_dpl`
 --
@@ -131,6 +190,12 @@ INSERT INTO `tempat_dpl` (`id_tempat_dpl`, `nip`, `id_tempat`) VALUES
 
 --
 -- Table structure for table `tempat_mhs`
+=======
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tempat_mhs`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 
 CREATE TABLE `tempat_mhs` (
@@ -140,7 +205,11 @@ CREATE TABLE `tempat_mhs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+<<<<<<< HEAD
 -- Dumping data for table `tempat_mhs`
+=======
+-- Dumping data untuk tabel `tempat_mhs`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 
 INSERT INTO `tempat_mhs` (`id_tempat_mhs`, `npm`, `id_tempat`) VALUES
@@ -151,7 +220,11 @@ INSERT INTO `tempat_mhs` (`id_tempat_mhs`, `npm`, `id_tempat`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Structure for view `penempatan_dpl`
+=======
+-- Struktur untuk view `penempatan_dpl`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 DROP TABLE IF EXISTS `penempatan_dpl`;
 
@@ -160,7 +233,11 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Structure for view `penempatan_mhs`
+=======
+-- Struktur untuk view `penempatan_mhs`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 DROP TABLE IF EXISTS `penempatan_mhs`;
 
@@ -171,6 +248,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
+<<<<<<< HEAD
 -- Indexes for table `dpl`
 --
 ALTER TABLE `dpl`
@@ -178,18 +256,35 @@ ALTER TABLE `dpl`
 
 --
 -- Indexes for table `mahasiswa`
+=======
+-- Indeks untuk tabel `dpl`
+--
+ALTER TABLE `dpl`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `mahasiswa`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`npm`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `tempat`
+=======
+-- Indeks untuk tabel `tempat`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 ALTER TABLE `tempat`
   ADD PRIMARY KEY (`id_tempat`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `tempat_dpl`
+=======
+-- Indeks untuk tabel `tempat_dpl`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 ALTER TABLE `tempat_dpl`
   ADD PRIMARY KEY (`id_tempat_dpl`),
@@ -197,7 +292,11 @@ ALTER TABLE `tempat_dpl`
   ADD KEY `FK_tempatdpl` (`id_tempat`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `tempat_mhs`
+=======
+-- Indeks untuk tabel `tempat_mhs`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 ALTER TABLE `tempat_mhs`
   ADD PRIMARY KEY (`id_tempat_mhs`),
@@ -205,6 +304,7 @@ ALTER TABLE `tempat_mhs`
   ADD KEY `FK_tempatmhs` (`id_tempat`);
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -216,29 +316,55 @@ ALTER TABLE `dpl`
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
+=======
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `dpl`
+--
+ALTER TABLE `dpl`
+  MODIFY `id` bigint(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `mahasiswa`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 ALTER TABLE `mahasiswa`
   MODIFY `npm` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2217051111;
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT for table `tempat`
+=======
+-- AUTO_INCREMENT untuk tabel `tempat`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 ALTER TABLE `tempat`
   MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT for table `tempat_dpl`
+=======
+-- AUTO_INCREMENT untuk tabel `tempat_dpl`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 ALTER TABLE `tempat_dpl`
   MODIFY `id_tempat_dpl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT for table `tempat_mhs`
+=======
+-- AUTO_INCREMENT untuk tabel `tempat_mhs`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 ALTER TABLE `tempat_mhs`
   MODIFY `id_tempat_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+<<<<<<< HEAD
 -- Constraints for dumped tables
 --
 
@@ -251,6 +377,20 @@ ALTER TABLE `tempat_dpl`
 
 --
 -- Constraints for table `tempat_mhs`
+=======
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `tempat_dpl`
+--
+ALTER TABLE `tempat_dpl`
+  ADD CONSTRAINT `FK_dpl` FOREIGN KEY (`nip`) REFERENCES `dpl` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_tempatdpl` FOREIGN KEY (`id_tempat`) REFERENCES `tempat` (`id_tempat`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tempat_mhs`
+>>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 --
 ALTER TABLE `tempat_mhs`
   ADD CONSTRAINT `FK_mhs` FOREIGN KEY (`npm`) REFERENCES `mahasiswa` (`npm`) ON DELETE CASCADE ON UPDATE CASCADE,
