@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-    include "../config.php";
-?>
-=======
 include "../config.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -38,7 +34,6 @@ $dplList = $conn->query("SELECT * FROM dpl");
 
 ?>
 
->>>>>>> 53a8fb8 (edit dpl, mahasiswa and tempat)
 <!DOCTYPE html>
 <html lang="en">
 <head>
