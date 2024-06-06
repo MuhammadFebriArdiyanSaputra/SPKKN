@@ -13,7 +13,7 @@
     <?php
         if(isset($_GET['id_tempat'])) {
             $id_tempat = $_GET['id_tempat'];
-            $result = $connect->query("SELECT * FROM tempat WHERE id_tempat = $id_tempat");
+            $result = $conn->query("SELECT * FROM tempat WHERE id_tempat = $id_tempat");
             $tempat = $result->fetch_assoc();
         }
     ?>
@@ -31,7 +31,7 @@
             $id_tempat = $_POST['id_tempat'];
             $nama_tempat = $_POST['nama_tempat'];
 
-            $statement = $connect->prepare("UPDATE tempat SET nama_tempat = ? WHERE id_tempat = ?");
+            $statement = $conn->prepare("UPDATE tempat SET nama_tempat = ? WHERE id_tempat = ?");
             $statement->bind_param("si", $nama_tempat, $id_tempat);
             if($statement->execute()) {
                 echo "<br><br>Tempat baru berhasil diperbarui!";

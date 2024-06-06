@@ -15,7 +15,7 @@
         <select name="npm" required>
             <option></option>
             <?php
-                $mahasiswa = $connect->query("SELECT * FROM mahasiswa");
+                $mahasiswa = $conn->query("SELECT * FROM mahasiswa");
                 while ($row = $mahasiswa->fetch_assoc()) {
                     echo "<option value='{$row['npm']}'>{$row['nama_mahasiswa']}</option>";
                 }
@@ -26,7 +26,7 @@
         <select name="id_tempat" required>
             <option></option>
             <?php
-                $tempat = $connect->query("SELECT * FROM tempat");
+                $tempat = $conn->query("SELECT * FROM tempat");
                 while ($row = $tempat->fetch_assoc()) {
                     echo "<option value='{$row['id_tempat']}'>{$row['nama_tempat']}</option>";
                 }
@@ -42,7 +42,7 @@
             $npm = $_POST['npm'];
             $id_tempat = $_POST['id_tempat'];
 
-            $statement = $connect->prepare("INSERT INTO tempat_mhs VALUES (NULL, ?, ?)");
+            $statement = $conn->prepare("INSERT INTO tempat_mhs VALUES (NULL, ?, ?)");
             $statement->bind_param("ii", $npm, $id_tempat);
             if($statement->execute()) {
                 echo "<br><br>Penempatan Mahasiswa baru berhasil ditambahkan!";

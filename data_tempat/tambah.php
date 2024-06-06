@@ -22,7 +22,7 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $nama_tempat = $_POST['nama_tempat'];
 
-            $statement = $connect->prepare("INSERT INTO tempat(nama_tempat) VALUES (?)");
+            $statement = $conn->prepare("INSERT INTO tempat(nama_tempat) VALUES (?)");
             $statement->bind_param("s", $nama_tempat);
             if($statement->execute()) {
                 echo "<br><br>Tempat baru berhasil ditambahkan!";

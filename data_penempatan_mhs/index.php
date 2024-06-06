@@ -32,7 +32,7 @@
         </tr>
         <?php
             $nomor = 1;
-            $result = $connect->query("SELECT * FROM penempatan_mhs;");
+            $result = $conn->query("SELECT * FROM penempatan_mhs;");
             while($row = $result->fetch_assoc()) {
                 echo "<tr>
                     <td>".$nomor."</td>
