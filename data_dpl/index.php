@@ -33,13 +33,12 @@ if (isset($_GET['delete'])) {
 $dplList = $conn->query("SELECT * FROM dpl");
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" style="text/css" href="style.css">
+    <link rel="stylesheet" style="text/css" href="styledpl.css">
     <title>Data DPL - SPKKN</title>
 </head>
 <body>
@@ -48,7 +47,7 @@ $dplList = $conn->query("SELECT * FROM dpl");
             <h1>Sistem Penempatan KKN (SPKKN)</h1>
         </div>
         <nav class="navbar">
-            <a href="../">Home</a>
+            <a href="../index.html">Home</a>
             <a href="../data_dpl/index.php">Dosen Pembimbing Lapangan</a>
             <a href="../data_mhs/index.php">Mahasiswa</a>
             <a href="../data_tempat/index.php">Tempat KKN</a>

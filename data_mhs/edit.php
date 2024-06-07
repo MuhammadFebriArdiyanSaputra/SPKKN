@@ -12,6 +12,7 @@ include "../config.php";
 <body>
     <div class="container">
         <h1>Edit Data Mahasiswa</h1>
+
         <?php
         if(isset($_GET['npm'])) {
             $npm = $_GET['npm'];
@@ -19,6 +20,7 @@ include "../config.php";
             $mahasiswa = $result->fetch_assoc();
         }
         ?>
+
         <form method="POST" action="edit.php">
             <label>NPM</label><br>
             <input type="text" name="npm" value="<?php echo $mahasiswa['npm']; ?>" readonly>
@@ -36,6 +38,7 @@ include "../config.php";
         </form>
         <br>
         <a href="index.php">Kembali</a>
+
         <?php
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $npm = $_POST['npm'];
@@ -53,8 +56,12 @@ include "../config.php";
                 echo "Error : " . $statement->error;
             }
             $statement->close();
+
+            header("Location: index.php");
+            exit;
         }
         ?>
-    </div>
 </body>
 </html>
+
+

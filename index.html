@@ -1,25 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - SPKKN</title>
-</head>
-<body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("kkn.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: #333;
+      }
+      .header {
+        background-color: rgba(76, 175, 80, 0.8);
+        color: white;
+        padding: 20px;
+        text-align: left;
+      }
+      .navbar {
+        display: flex;
+        justify-content: right;
+        background-color: rgba(51, 51, 51, 0.8);
+      }
+      .navbar a {
+        padding: 14px 20px;
+        display: block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+      }
+      .navbar a:hover {
+        background-color: rgba(221, 221, 221, 0.8);
+        color: black;
+      }
+      .body {
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        margin: 20px;
+        border-radius: 10px;
+      }
+      .body h1 {
+        color: #4caf50;
+      }
+      .body h2 {
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
     <div class="header">
-        <h1>Sistem Penempatan KKN (SPKKN)</h1>
+      <h1>Sistem Penempatan KKN (SPKKN)</h1>
     </div>
     <nav class="navbar">
-        <a href="#">Home</a>
-        <a href="data_dpl/">Dosen Pembimbing Lapangan</a>
-        <a href="data_mhs/">Mahasiswa</a>
-        <a href="data_tempat/">Tempat KKN</a>
-        <a href="data_penempatan_dpl/">Penempatan DPL</a>
-        <a href="data_penempatan_mhs/">Penempatan Mahasiswa</a>
+      <a href="#">Home</a>
+      <a href="data_dpl/index.php">Dosen Pembimbing Lapangan</a>
+      <a href="data_mhs/index.php">Mahasiswa</a>
+      <a href="data_tempat/index.php">Tempat KKN</a>
+      <a href="data_penempatan_dpl/">Penempatan DPL</a>
+      <a href="data_penempatan_mhs/">Penempatan Mahasiswa</a>
     </nav>
     <div class="body">
-        <h1>Selamat Datang di Sistem Penempatan KKN (SPKKN) Universitas Lampung!</h1>
-        <h2>Silakan pilih menu di atas untuk mengolah data KKN.</h2>
+      <h1>
+        Selamat Datang di Sistem Penempatan KKN (SPKKN) Universitas Lampung!
+      </h1>
     </div>
-</body>
+  </body>
 </html>

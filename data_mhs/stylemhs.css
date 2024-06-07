@@ -12,7 +12,7 @@ body {
 }
 
 .header {
-  background: #50b3a2;
+  background-color: rgba(76, 175, 80, 0.8);
   color: #fff;
   padding: 10px 0;
   text-align: center;
@@ -57,7 +57,7 @@ body {
 }
 
 .table th {
-  background: #50b3a2;
+  background-color: rgba(76, 175, 80, 0.8);
   color: white;
 }
 
@@ -73,7 +73,7 @@ body {
 .btn-primary {
   align-self: baseline;
   margin-left: 150px;
-  background: #50b3a2;
+  background-color: rgba(76, 175, 80, 0.8);
 }
 
 .btn-info {

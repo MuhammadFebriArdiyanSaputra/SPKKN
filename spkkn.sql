@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Jun 2024 pada 17.04
+-- Waktu pembuatan: 07 Jun 2024 pada 02.56
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -39,8 +39,8 @@ CREATE TABLE `dpl` (
 --
 
 INSERT INTO `dpl` (`id`, `nama`, `nip`, `kontak`) VALUES
-(1, 'Dosen, S.kom.', 12232211, '0895989898'),
-(2, 'Dosen, S.kom.', 1223221, '0895989892');
+(1, 'Dosen, S.kom.', 12232211, '0895989891'),
+(2, 'Dosen, S.kom.', 12232212, '0895989892');
 
 -- --------------------------------------------------------
 
@@ -68,28 +68,6 @@ INSERT INTO `mahasiswa` (`npm`, `nama_mahasiswa`, `prodi`, `angkatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Stand-in struktur untuk tampilan `penempatan_dpl`
--- (Lihat di bawah untuk tampilan aktual)
---
-CREATE TABLE `penempatan_dpl` (
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in struktur untuk tampilan `penempatan_mhs`
--- (Lihat di bawah untuk tampilan aktual)
---
-CREATE TABLE `penempatan_mhs` (
-`id_tempat_mhs` int(11)
-,`npm` bigint(11)
-,`nama_mahasiswa` varchar(32)
-,`nama_tempat` varchar(100)
-);
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `tempat`
 --
 
@@ -103,7 +81,7 @@ CREATE TABLE `tempat` (
 --
 
 INSERT INTO `tempat` (`id_tempat`, `nama_tempat`) VALUES
-(1, 'Desa Menturus, Kecamatan Kudu, Kabupaten Jombang, Jawa Timur'),
+(1, 'Desa Menturu, Kecamatan Kudu, Kabupaten Jombang, Jawa Timur'),
 (2, 'Desa Sidomulyo, Kec. Sidomulyo, Kab. Lampung Selatan, Lampung Selatan'),
 (3, 'Desa Srimulyo, Kec. Anak Ratu Aji, Kab. Lampung Tengah, Lampung');
 
@@ -139,24 +117,6 @@ INSERT INTO `tempat_mhs` (`id_tempat_mhs`, `npm`, `id_tempat`) VALUES
 (1, 2217051024, 2),
 (2, 2217051019, 1),
 (3, 2217051025, 2);
-
--- --------------------------------------------------------
-
---
--- Struktur untuk view `penempatan_dpl`
---
-DROP TABLE IF EXISTS `penempatan_dpl`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `penempatan_dpl`  AS SELECT `tempat_dpl`.`id_tempat_dpl` AS `id_tempat_dpl`, `dpl`.`nip` AS `nip`, `dpl`.`nama_dpl` AS `nama_dpl`, `tempat`.`id_tempat` AS `id_tempat` FROM ((`tempat_dpl` join `dpl`) join `tempat`) WHERE `tempat_dpl`.`nip` = `dpl`.`nip` AND `tempat_dpl`.`id_tempat` = `tempat`.`id_tempat` ;
-
--- --------------------------------------------------------
-
---
--- Struktur untuk view `penempatan_mhs`
---
-DROP TABLE IF EXISTS `penempatan_mhs`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `penempatan_mhs`  AS SELECT `tempat_mhs`.`id_tempat_mhs` AS `id_tempat_mhs`, `mahasiswa`.`npm` AS `npm`, `mahasiswa`.`nama_mahasiswa` AS `nama_mahasiswa`, `tempat`.`nama_tempat` AS `nama_tempat` FROM ((`mahasiswa` join `tempat`) join `tempat_mhs`) WHERE `tempat_mhs`.`npm` = `mahasiswa`.`npm` AND `tempat_mhs`.`id_tempat` = `tempat`.`id_tempat` ;
 
 --
 -- Indexes for dumped tables
@@ -204,7 +164,7 @@ ALTER TABLE `tempat_mhs`
 -- AUTO_INCREMENT untuk tabel `dpl`
 --
 ALTER TABLE `dpl`
-  MODIFY `id` bigint(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
