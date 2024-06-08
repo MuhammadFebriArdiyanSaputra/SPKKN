@@ -20,13 +20,13 @@
     <form method="POST" action="edit.php">
         <input type="hidden" name="id_tempat_dpl" value="<?php echo $tempat_dpl['id_tempat_dpl']; ?>">
         <label>DPL</label><br>
-        <select name="nip" required>
+        <select name="id_dpl" required>
             <option></option>
             <?php
                 $dpl = $conn->query("SELECT * FROM dpl");
                 while ($row = $dpl->fetch_assoc()) {
-                    $selected = $row['nip'] == $tempat_dpl['nip'] ? 'selected' : '';
-                    echo "<option value='{$row['nip']}' $selected>{$row['nama']}</option>";
+                    $selected = $row['id'] == $tempat_dpl['id_dpl'] ? 'selected' : '';
+                    echo "<option value='{$row['id']}' $selected>{$row['nama']}</option>";
                 }
             ?>
         </select>
@@ -37,7 +37,7 @@
             <?php
                 $tempat = $conn->query("SELECT * FROM tempat");
                 while ($row = $tempat->fetch_assoc()) {
-                    $selected = $row['id_tempat'] == $tempat_mhs['id_tempat'] ? 'selected' : '';
+                    $selected = $row['id_tempat'] == $tempat_dpl['id_tempat'] ? 'selected' : '';
                     echo "<option value='{$row['id_tempat']}' $selected>{$row['nama_tempat']}</option>";
                 }
             ?>
@@ -50,11 +50,11 @@
     <?php
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id_tempat_dpl = $_POST['id_tempat_dpl'];
-            $nip = $_POST['nip'];
+            $id_dpl = $_POST['id_dpl'];
             $id_tempat = $_POST['id_tempat'];
 
-            $statement = $conn->prepare("UPDATE tempat_dpl SET nip = ?, id_tempat = ? WHERE id_tempat_dpl = ?");
-            $statement->bind_param("iii", $nip, $id_tempat, $id_tempat_dpl);
+            $statement = $conn->prepare("UPDATE tempat_dpl SET id_dpl = ?, id_tempat = ? WHERE id_tempat_dpl = ?");
+            $statement->bind_param("iii", $id_dpl, $id_tempat, $id_tempat_dpl);
             if($statement->execute()) {
                 echo "<br><br>Penempatan DPL baru berhasil diperbarui!";
             } else {

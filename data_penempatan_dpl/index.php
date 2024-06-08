@@ -43,7 +43,7 @@ include "../config.php";
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>
                         <td>".$nomor."</td>
-                        <td>".$row["nip"]."</td>
+                        <td>".$row["id_dpl"]."</td>
                         <td>".$row["id_tempat"]."</td>
                         <td>
                             <a href='edit.php?id_tempat_dpl=".$row['id_tempat_dpl']."' class='btn btn-info'>Edit</a>

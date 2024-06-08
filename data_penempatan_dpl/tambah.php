@@ -12,12 +12,12 @@
     <h1>Tambah Data Penempatan DPL</h1>
     <form method="POST" action="tambah.php">
         <label>DPL</label><br>
-        <select name="nip" required>
+        <select name="id_dpl" required>
             <option></option>
             <?php
                 $dpl = $conn->query("SELECT * FROM dpl");
                 while ($row = $dpl->fetch_assoc()) {
-                    echo "<option value='{$row['nip']}'>{$row['nama']}</option>";
+                    echo "<option value='{$row['id']}'>{$row['nama']}</option>";
                 }
             ?>
         </select>
@@ -39,11 +39,11 @@
     <a href="index.php">Kembali</a>
     <?php
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $nip = $_POST['nip'];
+            $id_dpl = $_POST['id_dpl'];
             $id_tempat = $_POST['id_tempat'];
 
             $statement = $conn->prepare("INSERT INTO tempat_dpl VALUES (NULL, ?, ?)");
-            $statement->bind_param("ii", $nip, $id_tempat);
+            $statement->bind_param("ii", $id_dpl, $id_tempat);
             if($statement->execute()) {
                 echo "<br><br>Penempatan DPL baru berhasil ditambahkan!";
             } else {
