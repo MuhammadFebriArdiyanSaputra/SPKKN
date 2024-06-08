@@ -18,10 +18,16 @@
         color: white;
         padding: 20px;
         text-align: left;
+        display: flex;
+        align-items: center;
+      }
+      .header img {
+        margin-right: 20px;
+        height: 50px; /* Adjust the height according to your logo size */
       }
       .navbar {
         display: flex;
-        justify-content: right;
+        justify-content: flex-end; /* Changed to flex-end to align items to the right */
         background-color: rgba(51, 51, 51, 0.8);
       }
       .navbar a {
@@ -52,6 +58,7 @@
   </head>
   <body>
     <div class="header">
+      <img src="logo.png" alt="Logo" />
       <h1>Sistem Penempatan KKN (SPKKN)</h1>
     </div>
     <nav class="navbar">

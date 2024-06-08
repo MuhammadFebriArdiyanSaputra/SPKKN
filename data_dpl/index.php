@@ -62,7 +62,7 @@ $dplList = $conn->query("SELECT * FROM dpl");
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nama</th>
+                        <th>Nama Dosen</th>
                         <th>NIP</th>
                         <th>Kontak</th>
                         <th>Aksi</th>
