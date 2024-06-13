@@ -17,7 +17,7 @@
             <?php
                 $dpl = $conn->query("SELECT * FROM dpl");
                 while ($row = $dpl->fetch_assoc()) {
-                    echo "<option value='{$row['id']}'>{$row['nama']}</option>";
+                    echo "<option value='{$row['id']}'>{$row['nip']} - {$row['nama']}</option>";
                 }
             ?>
         </select>

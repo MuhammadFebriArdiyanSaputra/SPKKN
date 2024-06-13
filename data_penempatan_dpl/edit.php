@@ -26,7 +26,7 @@
                 $dpl = $conn->query("SELECT * FROM dpl");
                 while ($row = $dpl->fetch_assoc()) {
                     $selected = $row['id'] == $tempat_dpl['id_dpl'] ? 'selected' : '';
-                    echo "<option value='{$row['id']}' $selected>{$row['nama']}</option>";
+                    echo "<option value='{$row['id']}' $selected>{$row['nip']} - {$row['nama']}</option>";
                 }
             ?>
         </select>

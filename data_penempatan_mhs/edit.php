@@ -26,7 +26,7 @@
                 $mahasiswa = $conn->query("SELECT * FROM mahasiswa");
                 while ($row = $mahasiswa->fetch_assoc()) {
                     $selected = $row['npm'] == $tempat_mhs['npm'] ? 'selected' : '';
-                    echo "<option value='{$row['npm']}' $selected>{$row['nama_mahasiswa']}</option>";
+                    echo "<option value='{$row['npm']}' $selected>{$row['npm']} - {$row['nama_mahasiswa']}</option>";
                 }
             ?>
         </select>
