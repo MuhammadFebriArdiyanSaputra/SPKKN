@@ -30,7 +30,7 @@ if (isset($_GET['delete'])) {
     }
 }
 
-$dplList = $conn->query("SELECT * FROM dpl");
+$dplList = $conn->query("SELECT * FROM dpl ORDER BY nip ASC");
 
 ?>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ $dplList = $conn->query("SELECT * FROM dpl");
             <table class="table">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>No</th>
                         <th>Nama Dosen</th>
                         <th>NIP</th>
                         <th>Kontak</th>
@@ -69,9 +69,13 @@ $dplList = $conn->query("SELECT * FROM dpl");
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($row = $dplList->fetch_assoc()): ?>
+                    <?php
+                        $nomor = 1;
+                        
+                        while ($row = $dplList->fetch_assoc()):    
+                    ?>
                         <tr>
-                            <td><?php echo $row['id']; ?></td>
+                            <td><?php echo $nomor; ?></td>
                             <td><?php echo $row['nama']; ?></td>
                             <td><?php echo $row['nip']; ?></td>
                             <td><?php echo $row['kontak']; ?></td>
@@ -80,7 +84,11 @@ $dplList = $conn->query("SELECT * FROM dpl");
                                 <a href="index.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
-                    <?php endwhile; ?>
+                    <?php
+                            $nomor++;
+
+                        endwhile;
+                    ?>
                 </tbody>
             </table>
         </div>

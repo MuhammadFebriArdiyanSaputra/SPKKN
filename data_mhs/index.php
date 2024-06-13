@@ -40,7 +40,7 @@ include "../config.php";
                 <tbody>
                     <?php
                         $nomor = 1;
-                        $result = $conn->query("SELECT * FROM mahasiswa;");
+                        $result = $conn->query("SELECT * FROM mahasiswa ORDER BY npm ASC;");
                         while($row = $result->fetch_assoc()) {
                             echo "<tr>
                                 <td>".$nomor."</td>

@@ -39,7 +39,7 @@ include "../config.php";
         <tbody>
         <?php
             $nomor = 1;
-            $result = $conn->query("SELECT * FROM penempatan_dpl");
+            $result = $conn->query("SELECT * FROM penempatan_dpl ORDER BY nip ASC");
 
             if ($result) {
                 while ($row = $result->fetch_assoc()) {
