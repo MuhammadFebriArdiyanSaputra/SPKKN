@@ -30,21 +30,25 @@ include "../config.php";
         <tr>
             <th>No</th>
             <th>NIP</th>
-            <th>ID_Tempat</th>
+            <th>Nama DPL</th>
+            <th>Kontak</th>
+            <th>Penempatan DPL</th>
             <th>Aksi</th>
         </tr>
         <thead>
         <tbody>
         <?php
             $nomor = 1;
-            $result = $conn->query("SELECT * FROM tempat_dpl");
+            $result = $conn->query("SELECT * FROM penempatan_dpl");
 
             if ($result) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>
                         <td>".$nomor."</td>
-                        <td>".$row["id_dpl"]."</td>
-                        <td>".$row["id_tempat"]."</td>
+                        <td>".$row["nip"]."</td>
+                        <td>".$row["nama"]."</td>
+                        <td>".$row["kontak"]."</td>
+                        <td>".$row["nama_tempat"]."</td>
                         <td>
                             <a href='edit.php?id_tempat_dpl=".$row['id_tempat_dpl']."' class='btn btn-info'>Edit</a>
                             <a href='hapus.php?id_tempat_dpl=".$row['id_tempat_dpl']."'  class='btn btn-danger' onclick=\"return confirm('Apakah benar mau menghapus data ini?');\">Hapus</a>

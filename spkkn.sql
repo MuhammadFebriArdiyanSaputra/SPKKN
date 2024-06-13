@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2024 at 01:31 PM
+-- Generation Time: Jun 13, 2024 at 09:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -69,6 +69,35 @@ INSERT INTO `mahasiswa` (`npm`, `nama_mahasiswa`, `prodi`, `angkatan`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `penempatan_dpl`
+-- (See below for the actual view)
+--
+CREATE TABLE `penempatan_dpl` (
+`id_tempat_dpl` int(11)
+,`nip` bigint(18)
+,`nama` varchar(255)
+,`kontak` varchar(255)
+,`nama_tempat` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `penempatan_mhs`
+-- (See below for the actual view)
+--
+CREATE TABLE `penempatan_mhs` (
+`id_tempat_mhs` int(11)
+,`npm` bigint(11)
+,`nama_mahasiswa` varchar(32)
+,`prodi` varchar(50)
+,`angkatan` int(4)
+,`nama_tempat` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tempat`
 --
 
@@ -104,7 +133,7 @@ CREATE TABLE `tempat_dpl` (
 
 INSERT INTO `tempat_dpl` (`id_tempat_dpl`, `id_dpl`, `id_tempat`) VALUES
 (9, 4, 2),
-(10, 1, 1);
+(10, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -126,6 +155,24 @@ INSERT INTO `tempat_mhs` (`id_tempat_mhs`, `npm`, `id_tempat`) VALUES
 (1, 2217051024, 2),
 (2, 2217051019, 1),
 (3, 2217051025, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `penempatan_dpl`
+--
+DROP TABLE IF EXISTS `penempatan_dpl`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `penempatan_dpl`  AS SELECT `tempat_dpl`.`id_tempat_dpl` AS `id_tempat_dpl`, `dpl`.`nip` AS `nip`, `dpl`.`nama` AS `nama`, `dpl`.`kontak` AS `kontak`, `tempat`.`nama_tempat` AS `nama_tempat` FROM ((`tempat_dpl` join `dpl`) join `tempat`) WHERE `tempat_dpl`.`id_dpl` = `dpl`.`id` AND `tempat_dpl`.`id_tempat` = `tempat`.`id_tempat` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `penempatan_mhs`
+--
+DROP TABLE IF EXISTS `penempatan_mhs`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `penempatan_mhs`  AS SELECT `tempat_mhs`.`id_tempat_mhs` AS `id_tempat_mhs`, `mahasiswa`.`npm` AS `npm`, `mahasiswa`.`nama_mahasiswa` AS `nama_mahasiswa`, `mahasiswa`.`prodi` AS `prodi`, `mahasiswa`.`angkatan` AS `angkatan`, `tempat`.`nama_tempat` AS `nama_tempat` FROM ((`tempat_mhs` join `mahasiswa`) join `tempat`) WHERE `tempat_mhs`.`npm` = `mahasiswa`.`npm` AND `tempat_mhs`.`id_tempat` = `tempat`.`id_tempat` ;
 
 --
 -- Indexes for dumped tables
@@ -173,7 +220,7 @@ ALTER TABLE `tempat_mhs`
 -- AUTO_INCREMENT for table `dpl`
 --
 ALTER TABLE `dpl`
-  MODIFY `id` bigint(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
@@ -191,13 +238,13 @@ ALTER TABLE `tempat`
 -- AUTO_INCREMENT for table `tempat_dpl`
 --
 ALTER TABLE `tempat_dpl`
-  MODIFY `id_tempat_dpl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_tempat_dpl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tempat_mhs`
 --
 ALTER TABLE `tempat_mhs`
-  MODIFY `id_tempat_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tempat_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
