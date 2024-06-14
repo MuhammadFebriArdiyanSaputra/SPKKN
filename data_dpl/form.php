@@ -23,125 +23,133 @@ if (isset($_GET['edit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" style="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Form DPL - SPKKN</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        .header img {
+            margin-right: 20px;
+            height: 50px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background: #575757;
+        }
+
+        .mt-4 {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            opacity: 0.8;
+        }
+
+    </style>
 </head>
-
-<style>
-    body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
-.container {
-  width: 100%;
-  margin: auto;
-  overflow: hidden;
-}
-
-.header {
-    background-color: rgba(76, 175, 80, 0.8);
-    color: white;
-    padding: 20px;
-    text-align: left;
-    display: flex;
-    align-items: center;
-}
-
-.header img {
-    margin-right: 20px;
-    height: 50px;
-}
-
-.navbar {
-  display: flex;
-  justify-content: flex-end;
-  background-color: rgba(51, 51, 51, 0.8);
-}
-
-.navbar a {
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
-  text-align: center;
-}
-
-.navbar a:hover {
-  background: #575757;
-}
-
-.mt-4 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.table {
-  width: 80%;
-  border-collapse: collapse;
-  margin: 20px 0;
-}
-
-.table th,
-.table td {
-  padding: 12px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-.table th {
-  background-color: rgba(76, 175, 80, 0.8);
-  color: white;
-}
-
-.btn {
-  display: inline-block;
-  padding: 8px 12px;
-  color: white;
-  text-decoration: none;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.btn-primary {
-  align-self: baseline;
-  margin-left: 150px;
-  background-color: rgba(76, 175, 80, 0.8);
-}
-
-.btn-info {
-  background: #5bc0de;
-}
-
-.btn-danger {
-  background: #d9534f;
-}
-
-.btn:hover {
-  opacity: 0.8;
-}
-
-</style>
-
 <body>
     <div class="container">
         <div class="header">
-            <img src="../logo.png">
+            <img src="../logo.png" alt="Logo">
             <h1>Sistem Penempatan KKN (SPKKN)</h1>
         </div>
-        <nav class="navbar">
-            <a href="../">Home</a>
-            <a href="#">Dosen Pembimbing Lapangan</a>
-            <a href="../data_mhs/">Mahasiswa</a>
-            <a href="../data_tempat/">Tempat KKN</a>
-            <a href="../data_penempatan_dpl/">Penempatan DPL</a>
-            <a href="../data_penempatan_mhs/">Penempatan Mahasiswa</a>
-        </nav>
-
         <div class="mt-4">
             <h2><?php echo $id ? 'Edit DPL' : 'Tambah DPL'; ?></h2>
             <form method="post" action="index.php">
